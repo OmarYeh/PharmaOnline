@@ -1,0 +1,9 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityRole>
+<a href="Create">go to create </a>
+<h1>List of Available Roles</h1>
+@foreach (var role in Model)
+{
+    <p>@role.Id @role.Name</p>
+}
+

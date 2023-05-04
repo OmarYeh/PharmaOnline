@@ -1,0 +1,38 @@
+﻿@model Final_Project.Models.UserRole
+
+@{
+    ViewData["Title"] = "Assign";
+}
+
+<h1>Assign</h1>
+
+<h4>UserRole</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Assign" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <Select asp-for="UserId" asp-items="@ViewBag.users" class="form-control"></Select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleId" class="control-label"></label>
+                <Select asp-for="RoleId" asp-items="@ViewBag.roles" class="form-control"></Select>
+                <span asp-validation-for="RoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Assign" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
